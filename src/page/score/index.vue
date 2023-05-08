@@ -94,6 +94,7 @@ body {
         left: 0.6rem;
         color: #3e2415;
         font-size: 0.65rem;
+        font-weight: 600;
         text-align: center;
     }
 }

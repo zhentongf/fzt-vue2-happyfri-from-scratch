@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "es2015",
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "comments": false
+}
+// 没有 babelrc 就会报错
+// cannot use import statement outside of a module
+// 大概，默认情况下 babel 不会修改 es6 语法。我推测默认就是什么都不改
