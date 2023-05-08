@@ -29,8 +29,13 @@ export default {
             scoreTipsArr: ['你说，是不是把知识都还给小学老师了？','还不错，但还需要继续加油哦！','不要嘚瑟还有进步的空间！','智商离爆表只差一步了！','非常好，你也太聪明啦，葡萄之家欢迎你！']
         }
     },
-    computed: mapState(['answerIdArray']),
+    computed: mapState([
+        'answerIdArray',
+        'timer'
+    ]),
     created() {
+        // 进入题目页面，清楚计时器
+        clearInterval(this.timer)
         this.computeScore()
         this.getScoreTip()
         document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)'

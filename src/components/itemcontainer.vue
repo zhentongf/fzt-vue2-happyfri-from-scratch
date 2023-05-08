@@ -76,11 +76,12 @@ export default {
             this.choosedNum = type;
             this.choosedId = id;
         },
-        // 到达最后一题，交卷，清空定时器，跳转分数页面
+        // 到达最后一题，交卷，跳转分数页面
         submitAnswer() {
             if(this.choosedNum !== null) {
                 this.addNum(this.choosedId)
-                clearInterval(this.timer)
+                // 在此处清楚 timer 有 bug, 例如答完题再后退再前进, 就会多创建几个无法清除的 timer
+                // clearInterval(this.timer) // 计时器改为在创建下一个页面时清除
                 this.$router.push('score')
             } else {
                 alert('您还没有选择答案哦')

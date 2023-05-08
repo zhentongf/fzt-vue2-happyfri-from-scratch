@@ -1,17 +1,23 @@
 import App from '../App'
 
+// vue 路由懒加载的三种写法
+// 第一种 es6 写法报错。
+// const Home = () => import('../page/home') 
+
 export default [{
     path: '/',
     component: App,
+    // resolve 大概是一个回调函数
     children: [{
         path: '',
-        // 暂时不知道参数 r 是什么意思
-        component: r => require.ensure([], () => r(require('../page/home')), 'home')
+        component: resolve => require(['../page/home'], resolve)
     }, {
         path: '/item',
-        component: r => require.ensure([], () => r(require('../page/item')), 'item')
+        // 方法二 vue 异步组件 传入参数 resolve
+        component: resolve => require(['../page/item'], resolve)
     }, {
         path: '/score',
-        component: r => require.ensure([], () => r(require('../page/score')), 'score')
+        // 方法三 webpack 的 require.ensure
+        component: resolve => require.ensure([], () => resolve(require('../page/score')), 'score')
     }]
 }]
