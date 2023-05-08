@@ -80,8 +80,8 @@ export default {
         submitAnswer() {
             if(this.choosedNum !== null) {
                 this.addNum(this.choosedId)
-                // 在此处清楚 timer 有 bug, 例如答完题再后退再前进, 就会多创建几个无法清除的 timer
-                // clearInterval(this.timer) // 计时器改为在创建下一个页面时清除
+                // 在此处清除 timer 有 bug, 例如答完题再后退再前进, 就会多创建几个无法清除的 timer
+                // clearInterval(this.timer) // 计时器改为在销毁页面时清除
                 this.$router.push('score')
             } else {
                 alert('您还没有选择答案哦')

@@ -30,12 +30,9 @@ export default {
         }
     },
     computed: mapState([
-        'answerIdArray',
-        'timer'
+        'answerIdArray'
     ]),
     created() {
-        // 进入题目页面，清楚计时器
-        clearInterval(this.timer)
         this.computeScore()
         this.getScoreTip()
         document.body.style.backgroundImage = 'url(./static/img/4-1.jpg)'
